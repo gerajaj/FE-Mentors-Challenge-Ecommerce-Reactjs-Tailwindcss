@@ -19,6 +19,7 @@ export default {
         'light-grayish-blue': 'hsl(223,164%,98%)',
         'black-75': 'hsl(0,0%,0%)',
       },
+      
     },
   },
   plugins: [],

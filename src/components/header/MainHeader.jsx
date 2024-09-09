@@ -6,16 +6,20 @@ import CloseIcon from "@/components/icons/CloseIcon";
 import { useState } from "react";
 import NavLinkHeader from "@/components/header/NavLinkHeader";
 const MainHeader = () => {
+
     const [NavClass, setNavClass] = useState(
         "hidden font-500 md:flex md:h-auto md:flex-row md:gap-4 md:mr-auto md:static md:p-0")
+
+
     const handleOpenMenu = () => {
         /*console.log("click") para verificar que funciona*/
-        setNavClass("tracking-widest absolute top-0 left-0 h-full p-8 gap-y-5 font-bold flex flex-col w-3/5 bg-white md:flex md:flex-row md:gap-4 md:mr-auto md:static")
+        setNavClass("z-50 tracking-widest absolute top-0 left-0 h-full p-8 gap-y-5 font-bold flex flex-col w-4/5 bg-white md:flex md:flex-row md:gap-4 md:mr-auto md:static")
     };
     const handleCloseMenu = () => {
         /*console.log("click") para verificar que funciona*/
         setNavClass("hidden font-bold md:flex md:h-auto md:flex-row md:gap-4 md:mr-auto md:static md:p-0")
     };
+
     return (
         <div className="">
             <header className="container mx-auto flex px-4 items-center gap-8 p-6 md:p-1">
