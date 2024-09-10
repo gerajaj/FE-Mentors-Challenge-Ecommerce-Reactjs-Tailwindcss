@@ -35,13 +35,13 @@ export default ({
     return (/*grid place-item-center es lo mismo que "flex justify-center items-center*/
         <section {...props}>
             {
-                isOpenModal && <button className="md:col-span-4 text-right font-bold text-gray-600 text-2xl" onClick={handleCloseModal}>x</button>
+                isOpenModal && <button className="md:col-span-4 text-center  -mb-4 -bold border-2 border-transparent rounded-lg hover:md:border-2 hover:border-white text-white text-2xl" onClick={handleCloseModal}>x</button>
             }
             <div className="relative col-span-4">
                 <img
                     src={ARRAY_IMGS[index]}
                     alt=""
-                    className=" rounded-xl aspect-auto md:cursor-pointer"
+                    className=" rounded-xl aspect-auto pointer-events-none md:cursor-pointer md:pointer-events-auto"
                     onClick={handleOpenModal} />
                 <div ref={btnSlider} className="absolute top-1/2 -translate-y-1/2 left-0 flex w-full justify-between px-4 md:hidden">
                     <button className="grid place-items-center w-10 h-10 bg-white rounded-full md:w-6 md:-mx-2 md:opacity-90 " onClick={handleClickPrev}>
@@ -63,8 +63,8 @@ export default ({
                         <img
 
                             src={smallImg}
-                            alt="" className="hidden rounded-xl md:block opac" />
-                        <span className={`absolute top-0 h-full w-full active:bg-white opacity-60 hover:bg-[rgba(255,255,255,0.4)] hover:border-2 hover:rounded-lg hover:border-orange-700 ${i === index && "bg-[rgba(255,255,255,0.8)]"}`}></span>
+                            alt="" className={`hidden rounded-xl md:block ${i === index && "blur-[.8px] "}`} />
+                        <span className={`absolute top-0 left-0 h-full w-full active:bg-white opacity-60 hover:bg-[rgba(255,255,255,0.4)] rounded-xl ${i === index && "bg-[rgba(255,255,255,0.8)] rounded-xl"}`}></span>
                     </div>
                 ))
             }

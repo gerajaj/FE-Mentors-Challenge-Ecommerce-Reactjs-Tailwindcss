@@ -21,7 +21,7 @@ export default () => {
                     <span className="text-lg">0</span>
                     <button className="px-2 text-3xl text-orange-600 font-bold active:text-orange-400 md:ml-2 md:-mr-3">+</button>
                 </div>
-                <button className="bg-orange-400 md:hover:bg-orange-500 md:active:bg-orange-sneakers active:bg-orange-sneakers rounded-md font-bold text-white w-full py-2 col-span-3 flex items-center justify-center gap-x-3 md:col-span-1">
+                <button className="bg-orange-600 md:hover:bg-orange-500 md:active:bg-orange-sneakers active:bg-orange-sneakers rounded-md font-bold text-white w-full py-2 col-span-3 flex items-center justify-center gap-x-3 md:col-span-1">
                     <CartIcon className="fill-white" />
                     <span>Add to Cart</span>
                 </button>
