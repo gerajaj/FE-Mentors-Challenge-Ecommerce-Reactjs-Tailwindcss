@@ -54,8 +54,18 @@ export default ({
                 </div>
             </div>
             {
-                ARRAY_IMGS_SMALL.map(smallImg => (
-                    <img key={smallImg} src={smallImg} alt="" className="hidden rounded-xl md:block" />
+                ARRAY_IMGS_SMALL.map((smallImg, i) => (
+                    <div
+                        key={i}
+                        onClick={() => {
+                            setIndex(i);
+                        }} className="relative rounded-lg overflow-hidden cursor-pointer">
+                        <img
+
+                            src={smallImg}
+                            alt="" className="hidden rounded-xl md:block opac" />
+                        <span className={`absolute top-0 h-full w-full active:bg-white opacity-60 hover:bg-[rgba(255,255,255,0.4)] hover:border-2 hover:rounded-lg hover:border-orange-700 ${i === index && "bg-[rgba(255,255,255,0.8)]"}`}></span>
+                    </div>
                 ))
             }
         </section>
