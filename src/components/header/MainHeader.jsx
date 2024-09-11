@@ -6,6 +6,7 @@ import CloseIcon from "@/components/icons/CloseIcon";
 import { useState } from "react";
 import NavLinkHeader from "@/components/header/NavLinkHeader";
 const MainHeader = () => {
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
 
     const [NavClass, setNavClass] = useState(
         "hidden font-500 md:flex md:h-auto md:flex-row md:gap-4 md:mr-auto md:static md:p-0")
@@ -13,15 +14,22 @@ const MainHeader = () => {
 
     const handleOpenMenu = () => {
         /*console.log("click") para verificar que funciona*/
-        setNavClass("z-50 tracking-widest absolute top-0 left-0 h-full p-8 gap-y-5 font-bold flex flex-col w-4/5 bg-white md:flex md:flex-row md:gap-4 md:mr-auto md:static")
+        setNavClass("z-50 tracking-widest absolute top-0 left-0 h-full p-8 gap-y-5 font-bold flex flex-col w-4/5 bg-white md:flex md:flex-row md:gap-4 md:mr-auto md:static");
+        setIsOpenMenu(true);
     };
     const handleCloseMenu = () => {
         /*console.log("click") para verificar que funciona*/
-        setNavClass("hidden font-bold md:flex md:h-auto md:flex-row md:gap-4 md:mr-auto md:static md:p-0")
+        setNavClass("hidden font-bold md:flex md:h-auto md:flex-row md:gap-4 md:mr-auto md:static md:p-0");
+        setIsOpenMenu(false);
     };
 
     return (
         <div className="">
+            {
+                isOpenMenu && (
+                    <span className="z-30 fixed top-0 left-0 bg-black/50 h-full w-full m-0 p-0 backdrop-blur" onClick={handleCloseMenu}></span>
+                )
+            }
             <header className="container mx-auto flex px-4 items-center gap-8 p-6 md:p-1">
                 <button className=" md:hidden " onClick={handleOpenMenu}>
                     <MenuIcon />
