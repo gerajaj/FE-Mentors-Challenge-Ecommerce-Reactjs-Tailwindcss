@@ -35,13 +35,13 @@ export default ({
     return (/*grid place-item-center es lo mismo que "flex justify-center items-center*/
         <section {...props}>
             {
-                isOpenModal && <button className="md:col-span-4 text-center  -mb-4 -bold border-2 border-transparent rounded-lg hover:md:border-2 hover:border-white text-white text-2xl" onClick={handleCloseModal}>x</button>
+                isOpenModal && <button className="md:col-span-4 text-center -mb-4 -bold border-2 border-transparent rounded-lg hover:md:border-2 hover:border-white text-white text-2xl" onClick={handleCloseModal}>x</button>
             }
             <div className="relative col-span-4">
                 <img
                     src={ARRAY_IMGS[index]}
                     alt=""
-                    className=" rounded-xl aspect-auto pointer-events-none md:cursor-pointer md:pointer-events-auto"
+                    className={`rounded-xl aspect-auto pointer-events-none md:cursor-pointer md:pointer-events-auto ${isOpenModal && "md:cursor-auto"}`}
                     onClick={handleOpenModal} />
                 <div ref={btnSlider} className="absolute top-1/2 -translate-y-1/2 left-0 flex w-full justify-between px-4 md:hidden">
                     <button className="grid place-items-center w-10 h-10 bg-white rounded-full md:w-6 md:-mx-2 md:opacity-90 " onClick={handleClickPrev}>
@@ -59,7 +59,7 @@ export default ({
                         key={i}
                         onClick={() => {
                             setIndex(i);
-                        }} className="relative rounded-lg overflow-hidden cursor-pointer">
+                        }} className="relative rounded-lg overflow-hidden md:cursor-pointer">
                         <img
 
                             src={smallImg}

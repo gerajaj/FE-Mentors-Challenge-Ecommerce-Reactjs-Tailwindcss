@@ -1,10 +1,17 @@
 import LogoSneakers from "@/assets/images/logo.svg";
 import AvatarImage from "@/assets/images/image-avatar.png";
+
 import MenuIcon from "@/components/icons/MenuIcon";
 import CartIcon from "@/components/icons/CartIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
+
 import { useState } from "react";
+
 import NavLinkHeader from "@/components/header/NavLinkHeader";
+import CartDetailHeader from "./CartDetailHeader";
+
+
+
 const MainHeader = () => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
 
@@ -30,7 +37,7 @@ const MainHeader = () => {
                     <span className="z-30 fixed top-0 left-0 bg-black/50 h-full w-full m-0 p-0 backdrop-blur" onClick={handleCloseMenu}></span>
                 )
             }
-            <header className="container mx-auto flex px-4 items-center gap-8 p-6 md:p-1">
+            <header className="container relative mx-auto flex px-4 items-center gap-8 p-6 md:p-1">
                 <button className=" md:hidden " onClick={handleOpenMenu}>
                     <MenuIcon />
                 </button>
@@ -55,6 +62,7 @@ const MainHeader = () => {
                         <CartIcon />
                     </button>
                     <img src={AvatarImage} alt="" className="w-9" />
+                    <CartDetailHeader />
                 </div>
             </header>
             <span className="container mt-0 mx-auto hidden h-[1px] w-full bg-gray-300 md:block"></span>
