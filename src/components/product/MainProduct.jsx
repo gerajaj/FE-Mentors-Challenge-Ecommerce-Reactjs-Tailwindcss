@@ -16,7 +16,7 @@ const ARRAY_IMGS_SMALL = [imgProductSmall1, imgProductSmall2, imgProductSmall3, 
 
 const MainProduct = () => {
     return (
-        <main className="grid grid-cols-1 gap-8 items-center md:px-auto mt-4 mx-auto md:min-h-[calc(100vh-89px)] md:container md:grid-cols-2 md:px-6 md:mt-6 md:items-start lg:items-center lg:min-h-0">
+        <main className="grid grid-cols-1 gap-8 items-center px-2 mt-4 mx-auto md:min-h-[calc(100vh-89px)] md:container md:grid-cols-2 md:px-6 md:mt-6 md:items-start lg:items-center lg:min-h-0">
             <MainImages
                 ARRAY_IMGS={ARRAY_IMGS}
                 ARRAY_IMGS_SMALL={ARRAY_IMGS_SMALL} />

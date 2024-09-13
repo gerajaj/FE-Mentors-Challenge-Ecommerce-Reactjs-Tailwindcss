@@ -37,7 +37,7 @@ export default ({
             {
                 isOpenModal && <button className="md:col-span-4 text-center -mb-4 -bold border-2 border-transparent rounded-lg hover:md:border-2 hover:border-white text-white text-2xl" onClick={handleCloseModal}>x</button>
             }
-            <div className="relative col-span-4">
+            <div className="relative col-span-4 md:z-20">
                 <img
                     src={ARRAY_IMGS[index]}
                     alt=""

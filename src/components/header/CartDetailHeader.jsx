@@ -3,7 +3,7 @@ import DeleteIcon from "@/components/icons/DeleteIcon";
 export default () => {
     return (
         /* Si tengo un left-0 puedo usar un md:left-full y md:-translate-x-full para acomodar la tarjeta a la derecha y un md:max-w-md para ajusta el tamaño de la tarjeta*/
-        <section className="absolute top-[120px] left-0 z-10 w-full md:-mt-10">
+        <section className="absolute top-[120px] left-0 z-10 md:top-[128px] md:mr-[50%] w-full md:-mt-10 ">
             <div className="mx-4 shadow-xl bg-white rounded-xl border border-gray-300 md:ml-[50%]">
                 <h4 className="px-6 py-4 text-lg font-bold">Cart</h4>
                 <hr className="bg-gray-400 mx-2" />
