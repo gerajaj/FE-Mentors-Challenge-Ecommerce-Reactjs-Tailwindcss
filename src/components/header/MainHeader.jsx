@@ -8,13 +8,14 @@ import CloseIcon from "@/components/icons/CloseIcon";
 import { useState, useEffect } from "react";
 
 import NavLinkHeader from "@/components/header/NavLinkHeader";
-import CartDetailHeader from "./CartDetailHeader";
+import CartDetailHeader from "@/components/header/CartDetailHeader";
 
 
 
 const MainHeader = () => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isOpenCart, setIsOpenCart] = useState(false);
+
 
     const [NavClass, setNavClass] = useState(
         "hidden font-500 md:flex md:h-auto md:flex-row md:gap-4 md:mr-auto md:static md:p-0")
@@ -52,9 +53,12 @@ const MainHeader = () => {
             {
                 isOpenMenu && (
                     <span className="z-40 fixed top-0 left-0 bg-black/50 h-full w-full m-0 p-0 backdrop-blur md:hidden" onClick={handleCloseMenu}></span>
-                )
+                )}
+            {isOpenCart && (
+                <span className="z-30 fixed top-0 left-0 bg-black/0 h-full w-full m-0 p-0" onClick={() => setIsOpenCart(false)}></span>
+            )
             }
-            <header className="md:container relative md:mx-auto flex px-2 items-center gap-8 p-6 md:p-1">
+            <header className="md:container relative md:mx-auto flex px-2 items-center gap-4 p-6 md:p-1">
                 <button className=" md:hidden " onClick={handleOpenMenu}>
                     <MenuIcon />
                 </button>
@@ -74,15 +78,19 @@ const MainHeader = () => {
                     <NavLinkHeader text="About" />
                     <NavLinkHeader text="Contact" />
                 </nav>
-                <div className="flex gap-4">
+                <div className="flex">
                     <button onClick={() => setIsOpenCart(!isOpenCart)}>
-                        <CartIcon />
+                        <CartIcon className="md:hover:fill-orange-600 md:active:fill-orange-sneakers" />
                     </button>
-                    <img src={AvatarImage} alt="" className="w-9" />
-                    {
-                        isOpenCart && <CartDetailHeader />
-                    }
+                    <img src={AvatarImage} alt="" className="w-9 ml-4" />
+                    <div className="z-50">
+                        {
+                            isOpenCart &&
+                            <CartDetailHeader />
 
+
+                        }
+                    </div>
                 </div>
             </header>
             <span className="container mt-0 mx-auto hidden h-[1px] w-full bg-gray-300 md:block"></span>

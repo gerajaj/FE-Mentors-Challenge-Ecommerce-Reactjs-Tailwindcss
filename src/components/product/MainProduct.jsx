@@ -14,13 +14,26 @@ import imgProductSmall4 from "@/assets/images/image-product-4-thumbnail.jpg";
 const ARRAY_IMGS = [imgProduct1, imgProduct2, imgProduct3, imgProduct4]
 const ARRAY_IMGS_SMALL = [imgProductSmall1, imgProductSmall2, imgProductSmall3, imgProductSmall4]
 
+/* Ejemplo para ir llamando los datos desde el backend o consumiendo una API*/
+const objectProduct = {
+    id: 1,
+    header: "SNEAKERS COMPANY",
+    title: "Fall Limited Edition Sneakers",
+    description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price: 250,
+    discount: 0.5,
+    imagesMain: ARRAY_IMGS,
+    imagesSmall: ARRAY_IMGS_SMALL
+}
+
+
 const MainProduct = () => {
     return (
         <main className="grid grid-cols-1 gap-8 items-center px-2 mt-4 mx-auto md:min-h-[calc(100vh-89px)] md:container md:grid-cols-2 md:px-6 md:mt-6 md:items-start lg:items-center lg:min-h-0">
             <MainImages
-                ARRAY_IMGS={ARRAY_IMGS}
-                ARRAY_IMGS_SMALL={ARRAY_IMGS_SMALL} />
-            <DetailsProduct />
+                ARRAY_IMGS={objectProduct.imagesMain}
+                ARRAY_IMGS_SMALL={objectProduct.imagesSmall} />
+            <DetailsProduct objectProduct={objectProduct} />
         </main>
     )
 }
