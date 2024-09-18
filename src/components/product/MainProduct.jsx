@@ -29,7 +29,7 @@ const objectProduct = {
 
 const MainProduct = () => {
     return (
-        <main className="grid grid-cols-1 gap-8 items-center px-2 mt-4 mx-auto md:min-h-[calc(100vh-89px)] md:container md:grid-cols-2 md:px-6 md:mt-6 md:items-start lg:items-center lg:min-h-0">
+        <main className="grid grid-cols-1 gap-8 items-center px-2 mt-4 mx-auto md:min-h-[calc(100vh-89px)] md:container md:grid-cols-2 md:px-6 md:mt-6 md:items-start lg:items-center lg:min-h-0 lg:max-w-5xl">
             <MainImages
                 ARRAY_IMGS={objectProduct.imagesMain}
                 ARRAY_IMGS_SMALL={objectProduct.imagesSmall} />

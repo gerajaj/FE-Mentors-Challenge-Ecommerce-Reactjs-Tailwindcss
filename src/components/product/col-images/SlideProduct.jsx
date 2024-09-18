@@ -59,7 +59,7 @@ export default ({
                         key={i}
                         onClick={() => {
                             setIndex(i);
-                        }} className="relative rounded-lg overflow-hidden md:cursor-pointer">
+                        }} className="relative rounded-lg overflow-hidden md:cursor-pointer ">
                         <img
 
                             src={smallImg}

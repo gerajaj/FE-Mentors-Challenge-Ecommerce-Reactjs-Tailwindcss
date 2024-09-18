@@ -1,10 +1,30 @@
-import CartIcon from "@/components/icons/CartIcon"
-import { useState } from "react"
+import CartIcon from "@/components/icons/CartIcon";
+
+import { useContext, useState } from "react";
+import { useCartDetails } from "@/context/useCartDetails";
 
 
 
 export default ({ objectProduct }) => {
-    const [count, setCount] = useState(0);
+
+    const { addProducts } = useContext(useCartDetails)
+
+    const [count, setCount] = useState(1);
+
+    const handleAddToCart = () => {
+        addProducts({
+            img: objectProduct.imagesSmall[0],
+            id: objectProduct.id,
+            discountPrice: (objectProduct.price * (1 - objectProduct.discount)).toFixed(2),
+            price: objectProduct.price,
+            title: objectProduct.title,
+            quantity: count
+        });
+        setCount(1);
+
+
+    }
+
     const minusButton = () => {
         if (count > 0) {
             setCount((prev) => prev - 1);
@@ -38,16 +58,18 @@ export default ({ objectProduct }) => {
                     <button
                         id="minus"
                         onClick={minusButton}
-                        disabled={count === 0}
-                        className={`px-2 text-3xl text-orange-600 font-bold active:text-orange-400 md:mr-2 md:-ml-3 ${count === 0 ? "text-gray-600 cursor-not-allowed active:text-gray-600" : ""}`}>-</button>
+                        disabled={count === 1}
+                        className={`px-2 text-3xl text-orange-600 font-bold active:text-orange-400 md:mr-2 md:-ml-3 ${count === 1 ? "text-gray-600 active:text-gray-600" : ""}`}>-</button>
                     <span className="text-lg">{count}</span>
                     <button
                         id="plus"
                         onClick={sumButton}
                         disabled={count === 10}
-                        className={`px-2 text-3xl text-orange-600 font-bold active:text-orange-400 md:ml-2 md:-mr-3 ${count === 10 ? "text-gray-600 cursor-not-allowed active:text-gray-600" : ""}`}>+</button>
+                        className={`px-2 text-3xl text-orange-600 font-bold active:text-orange-400 md:ml-2 md:-mr-3 ${count === 10 ? "text-gray-600 active:text-gray-600" : ""}`}>+</button>
                 </div>
-                <button className="bg-orange-600 md:hover:bg-orange-500 md:active:bg-orange-sneakers active:bg-orange-sneakers rounded-md font-bold text-white w-full py-2 col-span-3 flex items-center justify-center gap-x-3 md:col-span-1">
+                <button disabled={count === 0} className="bg-orange-600 md:hover:bg-orange-500 md:active:bg-orange-sneakers active:bg-orange-sneakers rounded-md font-bold text-white w-full py-2 col-span-3 flex items-center justify-center gap-x-3 md:col-span-1"
+                    onClick={handleAddToCart} >
+
                     <CartIcon className="fill-white" />
                     <span>Add to Cart</span>
                 </button>

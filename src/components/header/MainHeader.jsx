@@ -5,7 +5,9 @@ import MenuIcon from "@/components/icons/MenuIcon";
 import CartIcon from "@/components/icons/CartIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+
+import { useCartDetails } from "@/context/useCartDetails"
 
 import NavLinkHeader from "@/components/header/NavLinkHeader";
 import CartDetailHeader from "@/components/header/CartDetailHeader";
@@ -13,6 +15,9 @@ import CartDetailHeader from "@/components/header/CartDetailHeader";
 
 
 const MainHeader = () => {
+
+    const { countTotalQuantity } = useContext(useCartDetails);
+
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isOpenCart, setIsOpenCart] = useState(false);
 
@@ -49,7 +54,7 @@ const MainHeader = () => {
     };
 
     return (
-        <div className="">
+        <div className="bg-white sticky top-0 z-30 md:z-0 ">
             {
                 isOpenMenu && (
                     <span className="z-40 fixed top-0 left-0 bg-black/50 h-full w-full m-0 p-0 backdrop-blur md:hidden" onClick={handleCloseMenu}></span>
@@ -79,8 +84,9 @@ const MainHeader = () => {
                     <NavLinkHeader text="Contact" />
                 </nav>
                 <div className="flex">
-                    <button onClick={() => setIsOpenCart(!isOpenCart)}>
-                        <CartIcon className="md:hover:fill-orange-600 md:active:fill-orange-sneakers" />
+                    <button className="relative" onClick={() => setIsOpenCart(!isOpenCart)}>
+                        <CartIcon className="md:hover:fill-orange-600 md:active:fill-orange-sneakers " />
+                        <span className={`absolute bg-orange-600 px-[8px] text-white text-[10px] top-0 -right-2 font-bold rounded-xl ${countTotalQuantity === 0 ? "hidden" : ""}`}>{countTotalQuantity}</span>
                     </button>
                     <img src={AvatarImage} alt="" className="w-9 ml-4" />
                     <div className="z-50">
