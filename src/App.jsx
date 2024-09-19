@@ -5,7 +5,7 @@ import CartDetailProvider from '@/context/useCartDetails';
 
 const App = () => {
     return (
-        <div className="md:max-w-[1100px] md:mx-auto md:overflow-y-hidden lg:max-h-[1000px]" >
+        <div className="md:max-w-[1100px] md:mx-auto md:overflow-y-hidden h-[100%] dark:bg-neutral-900" >
             <CartDetailProvider>
                 <MainHeader />
                 <MainProduct />

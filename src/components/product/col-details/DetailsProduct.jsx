@@ -38,12 +38,12 @@ export default ({ objectProduct }) => {
     return (
         <section className="container mx-auto px-4 grid gap-y-4 md:px-0">
             <p className="text-orange-sneakers text-[14px] tracking-widest font-extrabold uppercase lg:text-[25px]">{objectProduct.header}</p>
-            <h2 className="font-bold text-3xl lg:text-[45px]">{objectProduct.title}</h2>
+            <h2 className="font-bold text-3xl lg:text-[45px] dark:text-white">{objectProduct.title}</h2>
             <p className="text-gray-500 text-justify text-[16px] lg:text-[21px]">
                 {objectProduct.description}
             </p>
             <div className="grid gap-2 font-bold items-center grid-cols-[1fr_3fr_1fr] lg:grid-cols-[1fr_4fr] ">
-                <span className=" text-3xl">
+                <span className=" text-3xl dark:text-white">
                     ${(objectProduct.price * (1 - objectProduct.discount)).toFixed(2)}
                 </span>
                 <span className="bg-orange-300 rounded-md ml-2 mr-auto py-1 px-2 text-orange-700 font-extrabold md:ml-3 md:my-1 ">
@@ -54,7 +54,7 @@ export default ({ objectProduct }) => {
                 </span>
             </div>
             <div className="grid grid-cols-3 md:grid-cols-[1fr_2fr] md:gap-x-2 mb-2 md:mb-0">
-                <div className="col-span-3 bg-gray-200 pb-2 px-5 rounded-md flex items-baseline justify-between md:col-span-1 mb-2 md:mb-0">
+                <div className="col-span-3 bg-gray-200 pb-2 px-5 rounded-md flex items-baseline justify-between md:col-span-1 mb-2 md:mb-0 dark:opacity-80">
                     <button
                         id="minus"
                         onClick={minusButton}

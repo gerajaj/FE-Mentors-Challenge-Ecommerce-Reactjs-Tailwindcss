@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const useCartDetails = createContext();
 
@@ -43,8 +43,26 @@ export default (props) => {
         setCartProducts(cartProducts.filter(item => item.id !== id))
     }
 
+    const [theme, setTheme] = useState(() => {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark"
+        }
+        return ""
+    })
+
+    useEffect(() => {
+        if (theme === "dark") {
+            document.querySelector("html").classList.add("dark")
+        } else {
+            document.querySelector("html").classList.remove("dark")
+        }
+    }, [theme])
+    const handleChangeTheme = () => {
+        setTheme(prevTheme => prevTheme === "" ? "dark" : "")
+    }
+
     return (
-        <useCartDetails.Provider value={{ cartProducts, addProducts, deleteCartProducts, countTotalQuantity }}>
+        <useCartDetails.Provider value={{ cartProducts, addProducts, deleteCartProducts, countTotalQuantity, theme, setTheme, handleChangeTheme }}>
             {props.children}
         </useCartDetails.Provider>
     );

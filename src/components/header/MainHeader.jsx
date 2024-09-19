@@ -1,5 +1,6 @@
 import LogoSneakers from "@/assets/images/logo.svg";
 import AvatarImage from "@/assets/images/image-avatar.png";
+import LogoIcon from "@/components/icons/LogoIcon";
 
 import MenuIcon from "@/components/icons/MenuIcon";
 import CartIcon from "@/components/icons/CartIcon";
@@ -17,6 +18,7 @@ import CartDetailHeader from "@/components/header/CartDetailHeader";
 const MainHeader = () => {
 
     const { countTotalQuantity } = useContext(useCartDetails);
+    const { handleChangeTheme } = useContext(useCartDetails);
 
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isOpenCart, setIsOpenCart] = useState(false);
@@ -43,7 +45,7 @@ const MainHeader = () => {
     const handleOpenMenu = () => {
         /*console.log("click") para verificar que funciona*/
 
-        setNavClass("z-50 tracking-widest absolute top-0 left-0 p-8 gap-y-5 font-bold flex flex-col w-4/5 bg-white rounded-br-md md:h-auto md:flex md:flex-row md:gap-4 md:mr-auto md:static");
+        setNavClass("z-50 tracking-widest absolute top-0 left-0 p-8 gap-y-5 font-bold flex flex-col w-4/5 bg-white rounded-br-md md:h-auto md:flex md:flex-row md:gap-4 md:mr-auto md:static dark:bg-neutral-950");
         setIsOpenMenu(true);
 
     };
@@ -54,7 +56,7 @@ const MainHeader = () => {
     };
 
     return (
-        <div className="bg-white sticky top-0 z-30 md:z-0 ">
+        <div className="bg-white sticky top-0 z-30 md:z-0 dark:bg-neutral-900 ">
             {
                 isOpenMenu && (
                     <span className="z-40 fixed top-0 left-0 bg-black/50 h-full w-full m-0 p-0 backdrop-blur md:hidden" onClick={handleCloseMenu}></span>
@@ -64,14 +66,18 @@ const MainHeader = () => {
             )
             }
             <header className="md:container relative md:mx-auto flex px-2 items-center gap-4 p-6 md:p-1">
-                <button className=" md:hidden " onClick={handleOpenMenu}>
+                <button className=" md:hidden" onClick={handleOpenMenu}>
                     <MenuIcon />
                 </button>
-                <img
+                {/*  <img
                     src={LogoSneakers}
                     alt="Logo Sneakers"
                     className="mr-auto mb-1 h-5 md:mr-0"
-                ></img>
+                >
+                </img> */}
+                <button>
+                    <LogoIcon className="mr-auto mb-1 h-5 md:mr-0 dark:fill-white pointer-events-none" />
+                </button>
                 <nav className={NavClass}>
                     {/*a.#*5{lorem $1} hace lo mismo que arriba, lorem es el la palabra de la etiqueta y el $ sirve para contar, en ese caso llegaría hasta el 5, otro snippet es shft+alt+abajo*/}
                     <button className="mr-[93%] mb-8 md:hidden" onClick={handleCloseMenu}>
@@ -83,12 +89,15 @@ const MainHeader = () => {
                     <NavLinkHeader text="About" />
                     <NavLinkHeader text="Contact" />
                 </nav>
-                <div className="flex">
-                    <button className="relative" onClick={() => setIsOpenCart(!isOpenCart)}>
-                        <CartIcon className="md:hover:fill-orange-600 md:active:fill-orange-sneakers " />
+                <div className="flex ml-auto gap-x-1">
+                    <button className=" border-[2px] border-very-dark-blue border-opacity-30 mr-2 rounded-full hover:border-opacity-75 active:hover:opacity-50  dark:bg-neutral-900 dark:text-white dark:border-grayish-blue dark:hover:border-orange-sneakers transition-all duration-0">
+                        <p className="mx-3" onClick={handleChangeTheme}>Change Theme</p>
+                    </button>
+                    <button className="relative mx-auto ml-1" onClick={() => setIsOpenCart(!isOpenCart)}>
+                        <CartIcon className="md:hover:fill-orange-600 md:active:fill-orange-sneakers" />
                         <span className={`absolute bg-orange-600 px-[8px] text-white text-[10px] top-0 -right-2 font-bold rounded-xl ${countTotalQuantity === 0 ? "hidden" : ""}`}>{countTotalQuantity}</span>
                     </button>
-                    <img src={AvatarImage} alt="" className="w-9 ml-4" />
+                    <img src={AvatarImage} alt="" className="w-9 ml-4 border-2 rounded-full md:hover:border-orange-sneakers md:active:border-orange-400" />
                     <div className="z-50">
                         {
                             isOpenCart &&
