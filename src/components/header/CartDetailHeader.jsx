@@ -14,10 +14,10 @@ export default () => {
         <>
             <section className={`absolute top-[120px] right-0 mt-5 md:top-[128px] mx-[5%]  max-w-auto md:px-[350px] md:max-w-[600px] md:-mt-10 ${cartProducts.length === 0 && window.innerWidth < 768 ? "left-0" : ""}`}>
                 <div className="mx-4 shadow-xl bg-white rounded-xl border border-gray-300 md:w-[350px]">
-                    <h4 className="px-6 py-4 text-lg font-bold">Cart</h4>
+                    <h4 className="px-[44%] py-4 text-lg font-bold md:px-6">Cart</h4>
                     <hr className="bg-gray-400 mx-2" />
                     {
-                        cartProducts.length === 0 && <p className=" py-8 pb-1 font-bold text-center text-gray-600 px-40 md:px-[100px]">Your cart is empty</p>
+                        cartProducts.length === 0 && <p className=" py-8 pb-1 font-bold text-center text-gray-600 px-20 md:px-[100px]">Your cart is empty</p>
                     }
                     {
                         cartProducts.map(product => (

@@ -19,6 +19,7 @@ const MainHeader = () => {
 
     const { countTotalQuantity } = useContext(useCartDetails);
     const { handleChangeTheme } = useContext(useCartDetails);
+    const { theme } = useContext(useCartDetails);
 
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isOpenCart, setIsOpenCart] = useState(false);
@@ -90,8 +91,8 @@ const MainHeader = () => {
                     <NavLinkHeader text="Contact" />
                 </nav>
                 <div className="flex ml-auto gap-x-1">
-                    <button className=" border-[2px] border-very-dark-blue border-opacity-30 mr-2 rounded-full hover:border-opacity-75 active:hover:opacity-50  dark:bg-neutral-900 dark:text-white dark:border-grayish-blue dark:hover:border-orange-sneakers transition-all duration-0">
-                        <p className="mx-3" onClick={handleChangeTheme}>Change Theme</p>
+                    <button className="text-sm md:text-md border-[2px] border-very-dark-blue border-opacity-30 mr-2 rounded-full hover:border-opacity-75 active:hover:opacity-50  dark:bg-neutral-900 dark:text-white dark:border-grayish-blue dark:hover:border-orange-sneakers transition-all duration-0 ">
+                        <p className="mx-3" onClick={handleChangeTheme}>{theme === "light" ? "dark" : "light"}</p>
                     </button>
                     <button className="relative mx-auto ml-1" onClick={() => setIsOpenCart(!isOpenCart)}>
                         <CartIcon className="md:hover:fill-orange-600 md:active:fill-orange-sneakers" />

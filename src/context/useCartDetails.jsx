@@ -45,20 +45,24 @@ export default (props) => {
 
     const [theme, setTheme] = useState(() => {
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+
             return "dark"
         }
-        return ""
+        return "light"
     })
+
 
     useEffect(() => {
         if (theme === "dark") {
             document.querySelector("html").classList.add("dark")
+
         } else {
             document.querySelector("html").classList.remove("dark")
+
         }
     }, [theme])
     const handleChangeTheme = () => {
-        setTheme(prevTheme => prevTheme === "" ? "dark" : "")
+        setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
     }
 
     return (
