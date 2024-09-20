@@ -61,6 +61,7 @@ export default (props) => {
 
         }
     }, [theme])
+
     const handleChangeTheme = () => {
         setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
     }

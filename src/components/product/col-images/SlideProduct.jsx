@@ -43,7 +43,7 @@ export default ({
                     alt=""
                     className={`rounded-xl aspect-auto pointer-events-none md:cursor-pointer md:pointer-events-auto ${isOpenModal && "md:cursor-auto"}`}
                     onClick={handleOpenModal} />
-                <div ref={btnSlider} className="absolute top-1/2 -translate-y-1/2 left-0 flex w-full justify-between px-4 md:hidden">
+                <div ref={btnSlider} className="absolute top-1/2 -translate-y-1/2 left-0 flex w-full justify-between px-4 md:hidden cursor-pointer">
                     <button className="grid place-items-center w-10 h-10 bg-white rounded-full md:w-6 md:-mx-2 md:opacity-90" onClick={handleClickPrev}>
                         <PreviIcon />
                     </button>
