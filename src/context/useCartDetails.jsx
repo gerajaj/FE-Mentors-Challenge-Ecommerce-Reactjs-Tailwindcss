@@ -19,7 +19,7 @@ export default (props) => {
                 const totalQuantity = item.quantity + product.quantity;
 
                 if (totalQuantity > maxQuantity) {
-                    alert(`No se pueden agregar más de ${maxQuantity} unidades de este producto`);
+                    alert(`Sorry, you cannot add more than ${maxQuantity} pieces of this product`);
                     /* por si quiero ponerle tiempo a un mensaje temporal setTimeout(() => alert(""), 3000);*/
                     return item;
                 } else {
